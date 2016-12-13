@@ -1,2 +1,2 @@
 # BaseApp-Android
-Base of a simple android proyect
+Base of a simple android project
