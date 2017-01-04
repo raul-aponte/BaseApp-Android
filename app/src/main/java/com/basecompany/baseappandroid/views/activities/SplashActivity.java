@@ -1,4 +1,4 @@
-package com.basecompany.baseappandroid.activities;
+package com.basecompany.baseappandroid.views.activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,15 +13,11 @@ import android.widget.VideoView;
 import com.basecompany.baseappandroid.R;
 import com.basecompany.baseappandroid.utils.Settings;
 
-/**
- * Created by Raul Aponte on 07/12/16.
- */
 public class SplashActivity extends Activity implements MediaPlayer.OnCompletionListener {
     private VideoView videoView;
 
-    public static void start(Context context) {
-        Intent intent = new Intent(context, SplashActivity.class);
-        context.startActivity(intent);
+    public static Intent newIntent(Context context) {
+        return new Intent(context, SplashActivity.class);
     }
 
     @Override
@@ -50,12 +46,14 @@ public class SplashActivity extends Activity implements MediaPlayer.OnCompletion
         videoView.start();
     }
 
-    private void splashCompleted(){
-        if (Settings.getToken()==null) {
-            LoginActivity.start(this);
+    private void splashCompleted() {
+        Intent intent;
+        if (Settings.getToken() == null) {
+            intent = LoginActivity.newIntent(this);
         } else {
-            DashboardActivity.start(this);
+            intent = DashboardActivity.newIntent(this);
         }
+        startActivity(intent);
     }
 
     @Override

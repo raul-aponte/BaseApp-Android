@@ -9,9 +9,6 @@ import com.basecompany.baseappandroid.AppController;
 import com.basecompany.baseappandroid.entities.AccessToken;
 import com.google.gson.Gson;
 
-/**
- * Created by Raul Aponte on 07/12/16.
- */
 public class Settings {
     private static final String KEY_TOKEN = "key_token";
 

@@ -1,19 +1,18 @@
 package com.basecompany.baseappandroid;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
-import com.basecompany.baseappandroid.activities.SplashActivity;
+import com.basecompany.baseappandroid.views.activities.SplashActivity;
 
 
-/**
- * Created by Raul Aponte on 06/12/16.
- */
 public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SplashActivity.start(this);
+        Intent intent = SplashActivity.newIntent(this);
+        startActivity(intent);
     }
 }

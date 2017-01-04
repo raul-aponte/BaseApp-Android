@@ -1,4 +1,4 @@
-package com.basecompany.baseappandroid.activities;
+package com.basecompany.baseappandroid.views.activities;
 
 import android.app.Activity;
 

@@ -1,8 +1,5 @@
 package com.basecompany.baseappandroid.entities;
 
-/**
- * Created by Raul Aponte on 07/12/16.
- */
 public class AccessToken {
     private int id;
     private String token;
