@@ -37,6 +37,8 @@ public class LoginActivity extends Activity implements View.OnClickListener, Log
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        loadDialog = new LoadDialog(this);
+
         linkControls();
         linkActions();
 
@@ -83,12 +85,12 @@ public class LoginActivity extends Activity implements View.OnClickListener, Log
 
     @Override
     public void showProgress() {
-
+        loadDialog.show();
     }
 
     @Override
     public void hideProgress() {
-
+        loadDialog.dismiss();
     }
 
     @Override
