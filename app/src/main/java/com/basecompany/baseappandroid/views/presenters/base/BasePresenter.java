@@ -1,9 +1,5 @@
 package com.basecompany.baseappandroid.views.presenters.base;
 
-/**
- * Created by Raul Aponte on 28/12/16.
- */
-
 public interface BasePresenter {
     /**
      * Method that control the lifecycle of the view. It should be called in the view's

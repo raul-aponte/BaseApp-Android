@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.basecompany.baseappandroid.R;
 import com.basecompany.baseappandroid.views.presenters.DashboardPresenter;
+import com.basecompany.baseappandroid.views.presenters.impl.DashboardPresenterImpl;
 
 public class DashboardActivity extends Activity implements DashboardPresenter.DashboardView {
 
@@ -26,7 +27,7 @@ public class DashboardActivity extends Activity implements DashboardPresenter.Da
         linkControls();
         linkActions();
 
-        presenter = new DashboardPresenter(this);
+        presenter = new DashboardPresenterImpl(this);
     }
 
     private void linkControls() {
