@@ -1,5 +1,9 @@
 package com.basecompany.baseappandroid.views.presenters.impl;
 
+import com.basecompany.baseappandroid.models.AccessToken;
+import com.basecompany.baseappandroid.network.EntityCallback;
+import com.basecompany.baseappandroid.network.UserClient;
+import com.basecompany.baseappandroid.network.response.ApiError;
 import com.basecompany.baseappandroid.views.presenters.LoginPresenter;
 
 public final class LoginPresenterImpl implements LoginPresenter {
@@ -10,6 +14,25 @@ public final class LoginPresenterImpl implements LoginPresenter {
     }
 
     public void login(String user, String password) {
+        // TODO: Implement real login
+        dummyLogin(user, password);
+        if(true) return;
+        ////////////////
+
+        UserClient.login(user, password, new EntityCallback<AccessToken>() {
+            @Override
+            public void onSuccess(AccessToken entity) {
+                view.loginSucceeded();
+            }
+
+            @Override
+            public void onError(ApiError error) {
+                view.showError(error.getLocalizedMessage());
+            }
+        });
+    }
+
+    private void dummyLogin(String user, String password) {
         if (user == null || user.isEmpty()) {
             view.userError("Empty User");
             return;

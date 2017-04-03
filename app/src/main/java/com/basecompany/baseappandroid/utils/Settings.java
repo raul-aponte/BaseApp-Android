@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.basecompany.baseappandroid.AppController;
-import com.basecompany.baseappandroid.entities.AccessToken;
+import com.basecompany.baseappandroid.models.AccessToken;
 import com.google.gson.Gson;
 
 public class Settings {

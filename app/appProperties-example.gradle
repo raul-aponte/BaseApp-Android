@@ -1,0 +1,5 @@
+ext {
+    apiBaseUrlDevelop = '"http//example.api.url.develop"'
+    apiBaseUrlTesting = '"http//example.api.url.testing"'
+    apiBaseUrlProduction = '"http//example.api.url.production"'
+}

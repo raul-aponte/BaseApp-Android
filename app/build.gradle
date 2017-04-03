@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply from: 'appProperties.gradle'
 
 android {
     compileSdkVersion 25
@@ -12,7 +13,15 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField "String", "API_URL", apiBaseUrlDevelop
+        }
+        appTesting {
+            buildConfigField "String", "API_URL", apiBaseUrlTesting
+        }
         release {
+            buildConfigField "String", "API_URL", apiBaseUrlProduction
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

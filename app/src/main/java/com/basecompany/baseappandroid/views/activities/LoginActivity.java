@@ -18,9 +18,9 @@ import com.basecompany.baseappandroid.views.presenters.impl.LoginPresenterImpl;
 public class LoginActivity extends Activity implements View.OnClickListener, LoginPresenter.LoginView {
 
     // Controls
-    private TextInputLayout tilUser;
-    private TextInputLayout tilPass;
-    private Button btnLogin;
+    private TextInputLayout textInputUser;
+    private TextInputLayout textInputPass;
+    private Button buttonLogin;
 
     private LoadDialog loadDialog;
 
@@ -46,18 +46,18 @@ public class LoginActivity extends Activity implements View.OnClickListener, Log
     }
 
     private void linkControls() {
-        tilUser = (TextInputLayout) findViewById(R.id.ali_til_user);
-        tilPass = (TextInputLayout) findViewById(R.id.ali_til_pass);
-        btnLogin = (Button) findViewById(R.id.ali_btn_login);
+        textInputUser = (TextInputLayout) findViewById(R.id.ali_til_user);
+        textInputPass = (TextInputLayout) findViewById(R.id.ali_til_pass);
+        buttonLogin = (Button) findViewById(R.id.ali_btn_login);
     }
 
     private void linkActions() {
-        btnLogin.setOnClickListener(this);
+        buttonLogin.setOnClickListener(this);
     }
 
     private void attemptToLogin() {
-        EditText txtUser = tilUser.getEditText();
-        EditText txtPass = tilPass.getEditText();
+        EditText txtUser = textInputUser.getEditText();
+        EditText txtPass = textInputPass.getEditText();
 
         if (txtUser == null || txtPass == null) return;
 
@@ -75,12 +75,12 @@ public class LoginActivity extends Activity implements View.OnClickListener, Log
 
     @Override
     public void userError(String message) {
-        tilUser.setError(message);
+        textInputUser.setError(message);
     }
 
     @Override
     public void passwordError(String message) {
-        tilPass.setError(message);
+        textInputPass.setError(message);
     }
 
     @Override

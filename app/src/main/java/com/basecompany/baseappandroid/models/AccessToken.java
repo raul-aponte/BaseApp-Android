@@ -1,4 +1,4 @@
-package com.basecompany.baseappandroid.entities;
+package com.basecompany.baseappandroid.models;
 
 public class AccessToken {
     private int id;
