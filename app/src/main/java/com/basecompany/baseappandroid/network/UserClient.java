@@ -11,8 +11,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public final class UserClient {
-    public static void login(String email, String password, final EntityCallback<AccessToken> callback){
+public class UserClient {
+    public void login(String email, String password, final EntityCallback<AccessToken> callback){
         UserService service = getService();
         LoginRequest request = new LoginRequest();
         request.setEmail(email);
@@ -36,7 +36,7 @@ public final class UserClient {
         });
     }
 
-    private static UserService getService() {
+    private UserService getService() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BuildConfig.API_URL)
                 .addConverterFactory(GsonConverterFactory.create())

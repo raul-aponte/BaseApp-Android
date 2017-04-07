@@ -8,9 +8,11 @@ import com.basecompany.baseappandroid.views.presenters.LoginPresenter;
 
 public final class LoginPresenterImpl implements LoginPresenter {
     private LoginPresenter.LoginView view;
+    private UserClient client;
 
-    public LoginPresenterImpl(LoginPresenter.LoginView view) {
+    public LoginPresenterImpl(LoginView view, UserClient client) {
         this.view = view;
+        this.client = client;
     }
 
     public void login(String user, String password) {
@@ -19,7 +21,7 @@ public final class LoginPresenterImpl implements LoginPresenter {
         if(true) return;
         ////////////////
 
-        UserClient.login(user, password, new EntityCallback<AccessToken>() {
+        client.login(user, password, new EntityCallback<AccessToken>() {
             @Override
             public void onSuccess(AccessToken entity) {
                 view.loginSucceeded();

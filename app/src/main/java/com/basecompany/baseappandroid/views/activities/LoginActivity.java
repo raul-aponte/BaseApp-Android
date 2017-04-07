@@ -1,6 +1,5 @@
 package com.basecompany.baseappandroid.views.activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,19 +9,18 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.basecompany.baseappandroid.R;
+import com.basecompany.baseappandroid.network.UserClient;
 import com.basecompany.baseappandroid.views.dialogs.LoadDialog;
 import com.basecompany.baseappandroid.views.dialogs.WarningDialog;
 import com.basecompany.baseappandroid.views.presenters.LoginPresenter;
 import com.basecompany.baseappandroid.views.presenters.impl.LoginPresenterImpl;
 
-public class LoginActivity extends Activity implements View.OnClickListener, LoginPresenter.LoginView {
+public class LoginActivity extends BaseActivity implements View.OnClickListener, LoginPresenter.LoginView {
 
     // Controls
     private TextInputLayout textInputUser;
     private TextInputLayout textInputPass;
     private Button buttonLogin;
-
-    private LoadDialog loadDialog;
 
     private LoginPresenter presenter;
 
@@ -37,12 +35,10 @@ public class LoginActivity extends Activity implements View.OnClickListener, Log
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        loadDialog = new LoadDialog(this);
-
         linkControls();
         linkActions();
 
-        presenter = new LoginPresenterImpl(this);
+        presenter = new LoginPresenterImpl(this, new UserClient());
     }
 
     private void linkControls() {
@@ -87,20 +83,5 @@ public class LoginActivity extends Activity implements View.OnClickListener, Log
     public void loginSucceeded() {
         Intent intent = DashboardActivity.newIntent(this);
         startActivity(intent);
-    }
-
-    @Override
-    public void showProgress() {
-        loadDialog.show();
-    }
-
-    @Override
-    public void hideProgress() {
-        loadDialog.dismiss();
-    }
-
-    @Override
-    public void showError(String message) {
-        WarningDialog.showAlert(this, message);
     }
 }

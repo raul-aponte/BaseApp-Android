@@ -4,7 +4,7 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="loading">Loading…</string>
-    <string name="error_login_wrong_data">El correo o contraseña son incorrectos</string>
-    <string name="error_signin_repeatedc_mail">Este correo ya ha sido ingresado</string>
-    <string name="error_internet_connection">Revise su conexión a internet</string>
+    <string name="error_login_wrong_data">Invalid mail or password</string>
+    <string name="error_signin_repeatedc_mail">This email has already been registered</string>
+    <string name="error_internet_connection">Network connection error</string>
 </resources>
