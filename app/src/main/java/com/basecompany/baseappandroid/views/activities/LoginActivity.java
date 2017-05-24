@@ -38,7 +38,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         linkControls();
         linkActions();
 
-        presenter = new LoginPresenterImpl(this, new UserClient());
+        presenter = new LoginPresenterImpl(this);
     }
 
     private void linkControls() {

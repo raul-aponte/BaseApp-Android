@@ -10,15 +10,15 @@ public final class LoginPresenterImpl implements LoginPresenter {
     private LoginPresenter.LoginView view;
     private UserClient client;
 
-    public LoginPresenterImpl(LoginView view, UserClient client) {
+    public LoginPresenterImpl(LoginView view) {
         this.view = view;
-        this.client = client;
+        client = new UserClient();
     }
 
     public void login(String user, String password) {
         // TODO: Implement real login
-        dummyLogin(user, password);
-        if(true) return;
+        //dummyLogin(user, password);
+        //if(true) return;
         ////////////////
 
         client.login(user, password, new EntityCallback<AccessToken>() {
