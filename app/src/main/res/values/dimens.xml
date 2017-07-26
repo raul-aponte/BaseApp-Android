@@ -2,4 +2,5 @@
 <resources>
     <dimen name="activity_horizontal_margin">20dp</dimen>
     <dimen name="activity_vertical_margin">20dp</dimen>
+    <dimen name="navigation_header_height">160dp</dimen>
 </resources>

@@ -1,8 +1,8 @@
 package com.basecompany.baseappandroid.presenters;
 
 import com.basecompany.baseappandroid.models.AccessToken;
-import com.basecompany.baseappandroid.network.EntityCallback;
 import com.basecompany.baseappandroid.network.UserClient;
+import com.basecompany.baseappandroid.network.response.LoginResponse;
 import com.basecompany.baseappandroid.views.presenters.LoginPresenter;
 import com.basecompany.baseappandroid.views.presenters.impl.LoginPresenterImpl;
 
@@ -14,6 +14,8 @@ import org.mockito.Mock;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.stubbing.Answer;
+
+import io.reactivex.Observer;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
@@ -53,11 +55,13 @@ public class LoginPresenterTests {
         doAnswer(new Answer() {
             @Override
             public Object answer(InvocationOnMock invocation) throws Throwable {
-                EntityCallback<AccessToken> callback = invocation.getArgument(2);
-                callback.onSuccess(validToken);
+                Observer<LoginResponse> observer = invocation.getArgument(2);
+                LoginResponse response = new LoginResponse();
+                response.setToken(validToken);
+                observer.onNext(response);
                 return null;
             }
-        }).when(client).login(eq(VALID_MAIL), eq(VALID_PASS), any(EntityCallback.class));
+        }).when(client).login(eq(VALID_MAIL), eq(VALID_PASS), any(Observer.class));
 
         presenter.login(VALID_MAIL, VALID_PASS);
         verify(loginView, times(1)).loginSucceeded();

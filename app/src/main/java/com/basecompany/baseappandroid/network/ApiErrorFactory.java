@@ -63,7 +63,7 @@ public final class ApiErrorFactory {
     private static String getNewUserMessage(int code) {
         Context context = AppController.getContext();
         if (code == 422) {
-            return context.getString(R.string.error_signin_repeatedc_mail);
+            return context.getString(R.string.error_signin_repeated_mail);
         }
         return null;
     }
